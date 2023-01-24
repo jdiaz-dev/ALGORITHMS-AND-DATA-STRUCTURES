@@ -1,0 +1,63 @@
+{
+    "workbench.sideBar.location": "left",
+    "editor.wordWrap": "on",
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+          {
+            "name": "Comment",
+            "scope": [
+              "comment",
+              "comment.block",
+              "comment.block.documentation",
+              "comment.line",
+              "comment.line.double-slash",
+              "punctuation.definition.comment",
+            ],
+            "settings": {
+              "fontStyle": "italic",
+              // "fontStyle": "italic underline",
+              // "fontStyle": "italic bold underline",
+            }
+          },
+        ]
+      },
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Monokai Dimmed:Leo",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "workbench.iconTheme": "vscode-icons",
+    "quokka.compactMessageOutput": true,
+    "quokka.darkTheme.error.decorationAttachmentRenderOptions": {
+        "border": null,
+        "borderColor": null,
+        "fontStyle": null,
+        "fontWeight": null,
+        "textDecoration": null,
+        "color": "#fe536a",
+        "backgroundColor": null,
+        "margin": "1.2em",
+        "width": null,
+        "height": null
+    },
+    "quokka.darkTheme.log.decorationAttachmentRenderOptions": {
+        "border": null,
+        "borderColor": null,
+        "fontStyle": "oblique",
+        "fontWeight": null,
+        "textDecoration": null,
+        "color": "rgb(151, 151, 23)",
+        "backgroundColor": "rgb(29, 27, 27)",
+        "margin": "1.2em",
+        "width": null,
+        "height": null
+    },
+    "workbench.preferredLightColorTheme": "Monokai Dimmed:Leo",
+    "editor.tokenColorCustomizationsExperimental": {
+      "[Monokai Dimmed:Leo]": {
+        "member": "#9954b9",
+        "property": "#ff0000"
+      }
+    },
+    
+    
+    
+}

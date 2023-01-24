@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class HashTableCuadraticProving {
+
+            constructor(size) {
+                this.size = size
+                this.table = new Array(size)
+                this.limite = 0
+                this.buildChain()
+            }
+            buildChain() {
+                for (let a = 0; a < this.table.length; a++) {
+                    this.table[a] = new Array()
+                }
+            }
+            putCandidate(candidate, votes, update = false, onlyPut = true) {
+                if (this.limite >= this.size && update === false) return 'The table is full'
+
+                let indexHashed = this.hash(candidate), index = 0, squareIndex = 1
+
+                while (
+                    (this.table[indexHashed][index] != null && update === false) &&
+                    this.table[indexHashed][index] != null
+                ) {
+                    indexHashed += Math.pow(squareIndex, 2)
+                    indexHashed = indexHashed % this.size
+
+                    squareIndex++
+                }
+                this.table[indexHashed][index] = candidate;
+                this.table[indexHashed][index + 1] = votes;
+                this.limit++;
+
+            }
+            get(candidate) {
+                let indexHashed = this.hash(candidate), index = 0, squareIndex = 1, contador = 0
+
+                while (this.table[indexHashed][index] != candidate && contador < this.size) {
+                    indexHashed += Math.pow(squareIndex, 2)
+                    indexHashed = indexHashed % this.size
+
+                    squareIndex++
+                    contador++
+                }
+
+                //revisa si el indice no superó el tamaño del array
+                if (contador >= this.size) {
+                    return null
+                } else {
+                    return this.table[indexHashed]
+
+                }
+
+            }
+            hash(value) {
+                let number = 0
+
+                //transformamos un  string a Array
+                for (let x = 0; x < value.length; x++) {
+                    //charCodeAt() - extrae el ASCII del caracter
+                    number = this.size * number + value.charCodeAt(x)
+                }
+
+                return number % this.size
+            }
+            updateVotesOfCandidate(candidate, votes) {
+                this.update(candidate, votes, true);
+            }
+            update(candidate, votes, update = false) {
+                let indexHashed = this.hash(candidate), index = 0, squareIndex = 1
+
+                while (this.table[indexHashed][index] != candidate) {
+                    indexHashed += Math.pow(squareIndex, 2)
+                    indexHashed = indexHashed % this.size
+
+                    squareIndex++
+                }
+
+                this.table[indexHashed][index + 1] += votes;
+
+            }
+
+        }
+        var hashTable_4 = new HashTableCuadraticProving(7)
+        hashTable_4.putCandidate('diaz fernandez', 34)
+        hashTable_4.putCandidate('jonathan alejandro', 25)
+        hashTable_4.putCandidate('alejandro diaz', 26)
+        hashTable_4.putCandidate('mollocondo ponce', 36)
+        hashTable_4.putCandidate('korah dark', 89)
+        hashTable_4.putCandidate('polsito diaz', 95)
+        hashTable_4.putCandidate('kabel kagey', 64)
+        console.log(hashTable_4.get('ugly'))     //devolvera nulo
+        console.log(hashTable_4.updateVotesOfCandidate('polsito diaz', 145))   //devolvera que esta lleno
+
+        console.log(hashTable_4)
+
+
+    </script>
+</body>
+
+</html>

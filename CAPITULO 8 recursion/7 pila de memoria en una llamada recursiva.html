@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            color:#347890
+        }
+    </style>
+    <script>
+        /* var numeros = [] */
+        function impresionRecursiva(num){
+            console.log(num)
+            if(num > 1){
+                
+                impresionRecursiva(num - 1)
+            }
+            
+        }
+        impresionRecursiva(6)
+        /* 
+            --Cada llamada recursiva debe ser almacenada en la memoria hasta que el caso sea resuelto
+            --Las funciones recursivas tienen una complejidad extra de complejidad que esta almacenado en la pila de memoria del sistema operativo, la pila esta acumulando hasta que el caso sea resuelto
+            --En el peor de los casos si el caso base es implementado incorrectamente, la funcion recursiva causa que el problema se estrelle porque el error del desbordamiento de pila ocurre cuando has mas de los numeros permitidos en memoria
+
+            --Por ello una solucion iterativa es preferible que una solucion recursiva
+         */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

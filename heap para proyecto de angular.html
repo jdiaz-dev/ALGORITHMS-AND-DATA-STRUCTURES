@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //implemtación del libro
+
+        /* ■■■■■■■■■■■■■■■■■■■■ FUNCIONES DE AYUDA DE UN HEAP ■■■■■■■■■■■■■■■■■■■■ */
+        function Heap() {
+            this.items = []
+        }
+        Heap.prototype.swap = function (index1, index2) {
+            let temp = this.items[index1]
+            this.items[index1] = this.items[index2]
+            this.items[index2] = temp
+        }
+        Heap.prototype.parentIndex = function (index) {
+
+            //to evit negative index
+            if(Math.floor((index - 1) / 2) == -1){
+                return 0
+            }else{
+                return Math.floor((index - 1) / 2)
+            }
+             
+            
+        }
+        Heap.prototype.leftChildIndex = function (index) {
+            return index * 2 + 1
+        }
+        Heap.prototype.rightChildIndex = function (index) {
+            return index * 2 + 2
+        }
+        Heap.prototype.parent = function (index) {
+            return this.items[this.parentIndex(index)]
+        }
+        Heap.prototype.leftChild = function (index) {
+
+            return this.items[this.leftChildIndex(index)]
+        }
+        Heap.prototype.rightChild = function (index, word) {
+
+            return this.items[this.rightChildIndex(index, word)]
+        }
+        Heap.prototype.peek = function () {
+            return this.items[0]
+        }
+        Heap.prototype.size = function () {
+            return this.items.length
+        }
+
+
+
+
+        /* ■■■■■■■■■■■■■■■■■■■■ IMPLEMENTACION COMPLETA MAX HEAP ■■■■■■■■■■■■■■■■■■■■ */
+        function MaxHeap() {
+            this.items = []
+        }
+
+        //herencia
+        MaxHeap.prototype = Object.create(Heap.prototype)
+
+        MaxHeap.prototype.add = function (item) {
+            console.log(this.items.length)
+            this.items[this.items.length] = item
+            this.bubbleUp()
+        }
+        //metodo para eliminar el primer elemento del array
+        MaxHeap.prototype.poll = function () {
+            let item = this.items[0]
+            this.items[0] = this.items[this.items.length - 1]
+
+            this.items.pop()
+            this.bubbleDown()
+            return item
+        }
+        //la percolación permite mantener sus estructura
+        //percolacion burbujeado abajo
+        MaxHeap.prototype.bubbleDown = function () {
+            let index = 0, indexVotes = 1
+
+            while (
+                this.fixUndefined(this.leftChild(index), indexVotes) >
+                this.fixUndefined(this.items[index], indexVotes) ||
+                this.fixUndefined(this.rightChild(index), indexVotes) >
+                this.fixUndefined(this.items[index], indexVotes)
+            ) {
+
+                let biggerIndex = this.leftChildIndex(index),
+                    biggerValue = this.items[biggerIndex] == undefined ? null : this.items[biggerIndex][indexVotes]
+
+                if (
+                    this.fixUndefined(this.rightChild(index), indexVotes) >
+                    this.fixUndefined(this.items[biggerIndex], indexVotes)
+                ) {
+                    biggerIndex = this.rightChildIndex(index)
+                }
+
+                this.swap(biggerIndex, index)
+
+                index = biggerIndex
+
+            }
+        }
+
+        //percolacion burbujeado arriba
+        MaxHeap.prototype.bubbleUp = function () {
+            let index = this.items.length - 1, indexVotes = 1
+            let parent = this.parent(index) == undefined ? null : this.parent(index)[indexVotes]
+
+            while (this.fixUndefined(this.parent(index), indexVotes) < this.fixUndefined(this.items[index], indexVotes)) {
+                this.swap(this.parentIndex(index), index)
+                index = this.parentIndex(index) //index toma la posición del padre
+            }
+        }
+        MaxHeap.prototype.fixUndefined = function (value, indexVotes) {
+
+            //value is bucket of candidate
+            if (value === undefined) {
+                return null
+            } else {
+                return value[indexVotes] //return number of votes
+            }
+        }
+
+
+        var maxheap = new MaxHeap()
+        maxheap.add(['mouse', 1]);
+        maxheap.add(['mouse', 2]);
+        maxheap.add(['mouse', 3]);
+        maxheap.add(['mouse', 4]);
+        console.log(maxheap)
+
+
+        console.log(maxheap.poll())
+        console.log(maxheap.poll())
+        console.log(maxheap.poll())
+        console.log(maxheap.poll())
+   
+
+
+        /* console.log(maxheap) */
+
+
+/* console.log(object) */
+
+        /*
+        
+        maxheap.add(1);
+        maxheap.add(10);
+        maxheap.add(5);
+        maxheap.add(100);
+        maxheap.add(8);
+        
+        
+        maxheap.add(['feo', 1]);
+        maxheap.add(['js', 10]);
+        maxheap.add([ 'burro', 5]);
+        maxheap.add([ 'c#', 100]);
+        maxheap.add([ 'java', 8]);
+        
+        
+        console.log(maxheap.poll())
+        console.log(maxheap.poll())
+        console.log(maxheap.poll())
+        console.log(maxheap.poll())
+        console.log(maxheap.poll())
+        
+        
+        
+        */
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

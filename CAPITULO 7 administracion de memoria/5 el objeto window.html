@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 150px;
+            height: 100px;
+            background:rgb(29, 27, 27);
+            color:green;
+            margin-top:20px;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <script>
+        //El objeto window es un objeto global en un navegador
+        // "window" es un objeto requerido para que el navegador corra
+        //Una variable global sera establecido como una propiedad del objeto window
+
+        //SI ES POSIBLE EVITAR VARIABLES GLOBALES, AHORRARA MEMORIA
+        var a = 'manzana'   //global con var
+        b = 'pera'  //global sin var
+
+        console.log(window.a)
+        console.log(window.b)
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 150px;
+            height: 100px;
+            background:rgb(29, 27, 27);
+            color:green;
+            margin-top:20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="one">One</div>
+    <div id="two">Two</div>
+
+    <script>
+        
+        var one = document.getElementById("one");
+
+        // arreglando la fuga en el DOM:
+        one.addEventListener('click', function(){
+            var two = document.getElementById("two");
+            two.remove();
+            console.log(two); //botara "remove" es null, esto debido a que en el segundo click ya no estara presente en el DOM, evitando una fuga en la memoria
+        });
+    </script>
+</body>
+</html>

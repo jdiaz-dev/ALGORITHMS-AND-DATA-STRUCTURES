@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="one">Button 1</button>
+    <button id="two">Button 2</button>
+
+    <script>
+        //arreglar fuga por el DOM
+    
+        one.addEventListener('click' , eliminarDos)
+        function eliminarDos(){
+            let two = document.querySelector("#two");
+            two.remove();
+            console.log(two); // will print the html even after deletion
+
+            one.removeEventListener("click",eliminarDos)
+        }
+
+        two.addEventListener('click', eliminarUno)
+        function eliminarUno(){
+            let one = document.querySelector("#one");
+            one.remove();
+            console.log(one); // will print the html even after deletion
+
+            two.removeEventListener("click",eliminarUno)
+            
+        }
+
+
+    </script>
+</body>
+</html>

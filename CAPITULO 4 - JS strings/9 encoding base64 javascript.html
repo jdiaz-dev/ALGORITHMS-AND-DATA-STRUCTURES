@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    /* 
+    BASE64
+
+        --BASE64 es un esquema de codificacion de binario a texto
+        --son usados cuando se necesita codificar datos binarios para que sean almacenados y transferidos sobre un medio diseñado para tratar con datos textuales
+
+        --Base64 es un sistema de numeracion posicional que usa como base 64
+        --Es la mayor potencia que puede ser representada utilizando unicamente caracteres ASCII
+        --Se utiliza para la codificacion de correos electronicos entre otros y privacidad bastante buena(PGP)
+        --Usan el rango de caracteres A-Za-z0-9 en ese orden para los primeros 62 digitos, pero los dos ultimos digitos varian considerablemente de unas a otras
+
+        --Existen otros metodos de codificacion que no utilizan base64 como:
+                UUEncode
+                binhex
+
+        --La aplicacion que tiene en URLs es cuando el tamaño de la informacion de identificacion usada es bastante grande
+        --Ademas de transformarlos en una cadena compacta, oculta la naturaleza de los datos ante posibles observadores
+        */
+
+        //btoa() - codifica
+        var codifica = btoa('Hola me gusta utilizar javascript')
+        console.log(codifica) // SG9sYSBtZSBndXN0YSB1dGlsaXphciBqYXZhc2NyaXB0
+
+
+        //atob() - decodifica
+        var decodifica = atob('SG9sYSBtZSBndXN0YSB1dGlsaXphciBqYXZhc2NyaXB0')
+        console.log(decodifica) //Hola me gusta utilizar javascript
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

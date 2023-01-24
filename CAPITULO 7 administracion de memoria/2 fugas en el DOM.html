@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 150px;
+            height: 100px;
+            background:rgb(29, 27, 27);
+            color:green;
+            margin-top:20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="one">One</div>
+    <div id="two">Two</div>
+
+    <script>
+        // fuga en el DOM:
+        var one = document.getElementById("one");
+        var two = document.getElementById("two");
+
+        //el primer click eliminara a "two"
+        //pero despues del segundo click intentara referenciar al elemento removido
+        one.addEventListener('click', function(){
+            two.remove();
+            console.log(two); // will print the html even after deletion
+        });
+    </script>
+</body>
+</html>

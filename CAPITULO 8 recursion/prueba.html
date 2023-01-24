@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+//ver si la palabra es palindrome
+
+function esPalindrome(word){
+
+let wordSplit = word.split('')
+let inicio = 0
+let final = wordSplit.length - 1
+let mitad = Math.floor((wordSplit.length / 2)) - 1
+mitad
+
+
+function palindrome(wordSplit, inicio, final, mitad){
+
+    
+    if(wordSplit.length == 1) return true
+
+    //caso base
+    if( wordSplit[inicio] == wordSplit[final] ){
+        inicio
+        if(inicio == mitad){
+            debugger
+            inicio
+            return;
+        }else{
+            debugger
+            palindrome(wordSplit, inicio + 1 , final - 1, mitad)
+        }
+    }else{
+        return false
+    }
+    return true
+    
+    
+}
+let resultado = palindrome(wordSplit, inicio , final, mitad )
+resultado
+}
+console.log(esPalindrome('racecar'))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

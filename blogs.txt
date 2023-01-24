@@ -1,0 +1,28 @@
+00000. github algoritms and structure of data    https://github.com/Apress/js-data-structures-and-algorithms
+
+1.BIG O NOTATION    https://medium.com/front-end-weekly/big-o-in-js-the-basic-that-you-need-to-know-a5abb45570fa
+2.REGLAS BIG O NOTATION     https://dev.to/b0nbon1/understanding-big-o-notation-with-javascript-25mc
+3.NUMEROS DE PUNTO FLOTANTE EN JAVASCRIPT     
+        https://medium.com/@sarafecadu/64-bit-floating-point-a-javascript-story-fa6aad266665
+
+4. COMO SE CODIFICAN LOS NUMEROS CON JAVASCRIPT
+        https://dzone.com/articles/how-numbers-are-encoded
+
+5. NUMEROS DE PUNTO FLOTANTE NORMALIZADOS Y DESNORMALIZADOS
+        https://electronics.stackexchange.com/questions/226320/normalized-and-denormalized-floating-point-numbers
+
+
+6. configurar colores https://medium.com/@yongnicholasakim/visual-studio-code-color-theme-customization-for-newbies-880923e83dc
+
+7 mas configuracion de colores
+https://code.visualstudio.com/api/references/theme-color#editor-colors
+
+estructuras de datos   https://medium.com/techwomenc/estructuras-de-datos-a29062de5483
+
+estructuras de datos    https://theknowshares.com/about/
+
+
+
+
+DESCARGAR LIBROS PODEROSOS Y GRATIS
+        https://ru.b-ok2.org/book/5273804/af6cdd?dsource=recommend
