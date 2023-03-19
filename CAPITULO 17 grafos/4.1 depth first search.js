@@ -1,6 +1,9 @@
 
 /* ------------------- implementado del libro para recorrido de grafo deep first ------------------- */
-
+/*
+    * Depth-First Search Traversal
+        - Depth-first search (DFS) refers to a search algorithm in a graph that focuses on traversing deep into one connection before visiting the other connections
+*/
 function DirectedGraph(){
     this.edges = {}
 }
@@ -35,12 +38,12 @@ DirectedGraph.prototype._traverseDFS = function(vertex, visited, fn ){
     visited[vertex] = true
     fn(vertex)
     for(let adjacentVetex in this.edges[vertex]){
-        
+
         if( !visited[adjacentVetex] ){
             this._traverseDFS(adjacentVetex, visited, fn)
         }
     }
-    /* 
+    /*
         Complejidad de tiempo O(V + E) : donde V es número de vértices y E el numero de bordes
     */
 }

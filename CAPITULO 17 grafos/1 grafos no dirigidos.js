@@ -1,7 +1,14 @@
 
 /* ■■■■■■■■■■■■■■■■■■■■ IMPLEMENTACION DE UN GRAFO NO DIRIGIDO ■■■■■■■■■■■■■■■■■■■■*/
 
-/* 
+/*
+    Undirected Graphs
+        - Undirected graphs are graphs that do not have a direction between edges.
+        - The edge implies a mutual connection between the two nodes without a direction.
+        - A real-life example of an undirected graph relationship is friendship.
+        - Friendship occurs only if both parties mutually acknowledge the relationship
+*/
+/*
     vertex = point where join 2 unidimentional elements
     edge = the unidimentional element
 
@@ -67,12 +74,12 @@ graph1.addEdge(1, 5, 88)
 //vemos de nuevo el borde y su poderación
 console.log(graph1.edges)
 
-//removemos vertices 
+//removemos vertices
 graph1.removeVertex(5)
 console.log(graph1.edges)
 graph1.removeVertex(1)
 
-//removemos arista 
+//removemos arista
 graph1.removeEdge(2, 3)
 
 //vemos el estado final del grafo

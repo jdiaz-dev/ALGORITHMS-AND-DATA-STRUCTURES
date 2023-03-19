@@ -2,7 +2,10 @@
 
                                     //a:  from arr[1] to arr[arr.length - 1]
                                     //b:  from arr[0] to arr[arr.length - 2]
+let counter = 0
 function compararNumerosAscendente(a, b) {
+  // counter++
+  // console.log(counter)
   //I guess that b is higher and b is lower
   return a - b; //para ascentente
 }

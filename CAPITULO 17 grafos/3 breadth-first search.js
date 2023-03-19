@@ -1,6 +1,9 @@
 
 /* ------------------- implementado recorrido de grafo breadth first ------------------- */
-
+/*
+    * Breadth-First Search Traversal
+        -Breadth-first search (BFS) refers to a search algorithm in a graph that focuses on connected nodes and their connected nodes in order.
+*/
 function DirectedGraph(){
     this.edges = {}
 }

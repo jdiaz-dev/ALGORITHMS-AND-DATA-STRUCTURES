@@ -1,3 +1,9 @@
+/*
+    Directed Graphs
+        - Directed graphs are graphs that do have a direction between vertices.
+        - Each edge in a rected graph goes from one vertex to another
+*/
+
 
 function DirectedGraph() {
     this.edges = {}

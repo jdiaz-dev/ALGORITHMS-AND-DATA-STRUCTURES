@@ -32,7 +32,7 @@ Stack.prototype.accessTo_N_element = function(pila, n){
     let array_y_sus_metodos = pila.getBuffer()
     //luego sentenciamos a este array para obtener los metodos de la clase prinicipal
     let objetoExportado = new Stack(array_y_sus_metodos)
-    
+
     while( --n !== 0){
         objetoExportado.pop()
     }

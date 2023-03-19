@@ -1,3 +1,10 @@
+/*
+    Heap:
+        * Definition:
+            - A Heap is a special Tree-based data structure in which the tree is a complete binary tree.
+            - The heap is one maximally efficient implementation of an abstract data type called a priority queue,
+*/
+
 
 //implemtación del libro
 
@@ -50,14 +57,14 @@ Heap.prototype.size = function(){
 function MinHeap(){
     this.items = []
 }
-//creamos la herencia 
+//creamos la herencia
 MinHeap.prototype = Object.create(Heap.prototype)
 
 
 MinHeap.prototype.add = function(item){
     this.items[this.items.length] = item
     this.bubbleUp()
-    /* 
+    /*
         Complejidad de tiempo O(log2 (n) )
     */
 }
@@ -67,7 +74,7 @@ MinHeap.prototype.poll = function(){
     this.items.pop()
     this.bubbleDown()
     return item
-    /* 
+    /*
         Complejidad de tiempo O(log2 (n) )
     */
 }
@@ -94,7 +101,7 @@ MinHeap.prototype.bubbleUp = function(){
         this.swap(this.parentIndex(index), index)
         index = this.parentIndex(index) //index tama la posición del padre
     }
-    
+
 }
 
 var minHeap = new MinHeap()
@@ -111,7 +118,7 @@ console.log(minHeap.poll()) //8
 console.log(minHeap.poll()) //10
 console.log(minHeap.poll()) //100
 
-/* 
+/*
     Complejidad de tiempo del heap sort O(nlog2 (n))
 */
 

@@ -1,11 +1,13 @@
 
-/* 
+/*
     **Dijkstra’s Algorithm: Shortest Path
         --toma el camino más corto para llegar a su destino
         --al principio la distancia es marcada como infinito porque algunos nodos no podrían ser alcanzados
         --entonces en cada iteración para recorrer el árbol, la distancia más corta es más elegida de cada nodo
 
-        --este algoritmo hace uso del algoritmo para atravesar el grafo BSF
+        --este algoritmo hace uso del algoritmo para atravesar el grafo BFS
+
+        --Diskstra algorithm return the most shortest path to every node
 */
 
 /* ------------------- implementado algortimo Dijkstra ------------------- */
@@ -55,7 +57,6 @@ DirectedGraph.prototype.traverseBFS = function(vertex, fn){
             }
         }
 }
-
 DirectedGraph.prototype.dijkstra = function(source){
     let Q = {}, //vertices con aristas
         dist = {}
@@ -67,7 +68,7 @@ DirectedGraph.prototype.dijkstra = function(source){
     }
 
     dist[source] = 0
-    
+
     while( !isEmpty(Q) ){
         let u = _extractMin(Q, dist)
 
@@ -88,7 +89,7 @@ DirectedGraph.prototype.dijkstra = function(source){
 
     return dist
 
-    /* 
+    /*
         Tiempo de complejiad : O(V^2  +  E)     -> donde V = vertices, E = aristas
     */
 }

@@ -40,4 +40,4 @@ var node2 = {
 }
 console.log(findLowestCommonAncestor(node1, 0, 2)); // 1
 console.log(findLowestCommonAncestor(node2, 0, 2)); // 1
-console.log(findLowestCommonAncestor(node1, 0.5, -1)); // 0
+console.log(findLowestCommonAncestor(node2, 0.5, -1)); // 0

@@ -26,7 +26,7 @@ SinglyLinkedList.prototype.insert = function(value){
         this.head.next = temp
     }
     this.size++
-    /* 
+    /*
         Complejidad de tiempo O(1)
         Complejidad de memoria O(1)
     */
@@ -37,9 +37,10 @@ SinglyLinkedList.prototype.remove = function(value){
     if(currentNode.data == value){
         this.head = this.head.value
     }
-
+    //previous is an helper
     let previus = currentNode
     while(currentNode.next){
+
         if(currentNode.data == value){
 
             //eliminamos por omision de nodo
@@ -52,16 +53,19 @@ SinglyLinkedList.prototype.remove = function(value){
         }
         previus = currentNode
         currentNode = currentNode.next
+        previus
+        currentNode
     }
 
     //si valor no esta en la cabeza o en el medio, está en la cola
     if(currentNode.data == value){
         previus.next = null
     }
-    /* 
+    /*
         Complejidad de tiempo O(n)
 
     */
+        previus
 }
 //metodo para remover al prinicipio de la lista
 SinglyLinkedList.prototype.reomveAtHead = function(){
@@ -74,7 +78,7 @@ SinglyLinkedList.prototype.reomveAtHead = function(){
 
     return toReturn
 
-    /* 
+    /*
         Complejidad de tiempo O(1)
         Complejidad de memoria O(1)
     */
@@ -89,30 +93,33 @@ SinglyLinkedList.prototype.search = function(value){
         currentNode = currentNode.next
     }
     return false
-    /* 
+    /*
         Complejidad de tiempo O(n)
         Complejidad de espacio O(1)
     */
-}    
+}
 
 var sll1 = new SinglyLinkedList();
 sll1.insert(1); // linked list is now:  1 -> null
 sll1.insert(12); // linked list is now: 12 -> 1 -> null
 sll1.insert(20); // linked list is now: 20 -> 12 -> 1 -> null
 sll1.insert(50);
-sll1.insert(100);
+/*
+sll1.insert(100); */
 
-sll1
+// console.log(sll1)
 
-sll1.remove(12); // linked list is now: 20 -> 1 -> null
-sll1
+// sll1.remove(12); // linked list is now: 20 -> 1 -> null
+// sll1
 
-sll1.remove(1); // linked list is now: 1 -> null 
+sll1.remove(12); // linked list is now: 1 -> null
 sll1
 
 //removemos al inicio de la lista vinculada
-console.log(sll1.reomveAtHead())
-sll1
+// console.log(sll1.reomveAtHead())
+// sll1
 
 //hacemos una busqueda en la lista
-console.log(sll1.search(20))
+// console.log(sll1.search(20))
+
+

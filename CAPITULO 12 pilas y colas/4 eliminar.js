@@ -34,3 +34,4 @@ stack_1.push('C')
 console.log(stack_1.pop())
 stack_1
 
+console.log(stack_1.getBuffer()) //return the array used by the stack
