@@ -1,4 +1,5 @@
 
+// pattern: Fast and Slow pointers
 //palindrome array
 //https://medium.com/@sakalli.duran/linked-lists-reflections-unraveling-leetcodes-palindrome-linked-list-challenge-3d8f14a3dbf1#:~:text=We%20use%20the%20two%2Dpointer,linked%20list%20is%20a%20palindrome.
 const linkedList = {

@@ -1,3 +1,5 @@
+
+//pattern: Merge Intervals
 //https://www.geeksforgeeks.org/maximum-cpu-load-from-the-given-list-of-jobs/
 class Job {
     constructor(start, end, cpuLoad){
@@ -22,7 +24,7 @@ const findMaxCPULoad = (jobs) => {
         currentCpuLoad += job.cpuLoad
         cpuLoad = Math.max(cpuLoad, currentCpuLoad)
     }
-
+    cpuLoad
     return cpuLoad
 }
 
