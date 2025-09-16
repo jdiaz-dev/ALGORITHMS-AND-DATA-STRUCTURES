@@ -7,9 +7,8 @@
         --la implementación de este algoritmo requiere hacer seguimiento a cual nodo fue usado
 
         --para cumplir esto el LRU es implementado usando una lista vinculada doblemente y una tablahash
-        --la habla hash es necesario para hacer seguimiento a la cabeza(el más antiguo dato)
-        --la doble lista enlazada es requerido debido al LRU
-        --cada nuevo dato es insertado y la cabeza se mueve hasta que el tamaño sea exedido, entoncesel más viejo dato es desalojado
+        --la habla hash es necesario para hacer seguimiento si el tamaño de la tabla exedido
+        --la doble lista enlazada es requerido para hacer seguimiento a la cabeza(el más antiguo dato)cada nuevo dato es insertado en la cola y la cabeza se mueve hasta que es eliminado
 */
 
 function DLLNode(key, data){
@@ -38,13 +37,13 @@ LRUCache.prototype.removeNode = function(node){
     /* return node */
 }
 
-//every new node will be added at end of the list
+//every new node will be using the end of the list
 LRUCache.prototype.addNode = function(node){
-    let realTail = this.tail.prev
-    realTail.next = node
+    let realTail = this.tail.prev //next
+    realTail.next = node  //head.next = node
 
     
-    node.prev = realTail
+    node.prev = realTail  //node.prev = head
     node.next = this.tail
     this.tail.prev = node
 }
