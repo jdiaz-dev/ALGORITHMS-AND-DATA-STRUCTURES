@@ -14,13 +14,16 @@
         --Si hay colisiones el rendimiento es O(n / k); donde K = tamaño de la tabla hash
         --Ese tamaño "k" puede reducirse a O(n)
         --Con un buen algoritmo hash el rendimiento generalmente sera O(1)
-        --Utilizado para indexacion a base de datos
+        --Utilizado para indexacion a base de datos (creating and maintaining data structures that speed up data retrieval, without an index, the database must scan every row in a table to find what you need)
 
         ■Desventajas
         --Depende del lenguaje
         --Las colisiones hash son inevitables
         --Se vuelve ineficiente cuando hay muchas colisiones
         --No permite valores nulos como el hash map
+
+        ■Use cases
+        - use when we want speed up retrieval of data
 
         ■Complejidad
         --Complejidad de espacio O(n)
