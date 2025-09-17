@@ -9,6 +9,20 @@
         --para cumplir esto el LRU es implementado usando una lista vinculada doblemente y una tablahash
         --la habla hash es necesario para hacer seguimiento si el tamaño de la tabla exedido
         --la doble lista enlazada es requerido para hacer seguimiento a la cabeza(el más antiguo dato)cada nuevo dato es insertado en la cola y la cabeza se mueve hasta que es eliminado
+
+
+
+        * LRU behavior
+
+        <------------- last recently used
+          1    2   3   4   4   3   1   2 
+        ---------------------------------  
+        | 1 | 1 | 1 | 2 | 2 | 2 | 4 | 3 |
+        ---------------------------------
+        |   | 2 | 2 | 3 | 3 | 4 | 3 | 4 |
+        ---------------------------------
+        |   |   | 3 | 4 | 4 | 3 | 1 | 2 |
+
 */
 
 function DLLNode(key, data){
