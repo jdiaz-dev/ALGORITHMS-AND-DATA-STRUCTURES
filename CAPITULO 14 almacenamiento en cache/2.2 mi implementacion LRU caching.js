@@ -12,7 +12,7 @@
 
 
 
-        * LRU behavior
+    * LRU behavior
 
         <------------- last recently used
           1    2   3   4   4   3   1   2 

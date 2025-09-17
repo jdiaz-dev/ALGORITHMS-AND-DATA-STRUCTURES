@@ -3,18 +3,32 @@
 
 /* 
     **Least Frequently Used Caching
-            -el almacenamiento menos frecuentemente usado es un algoritmo usado por el sistema operativo para administrar la memoria
-            --cuando el caché exede su límte, el sistema elimina el boque menos frecuentemente usado
-            --cada bloque cargado en el cache es asignado con un contador e incrementado cada vez que se hace referencia a ese bloque
-            --cuando el caché exede su límite, el sistema busca el bloque con el contador mas y lo remueve del cache 
+        -el almacenamiento menos frecuentemente usado es un algoritmo usado por el sistema operativo para administrar la memoria
+        --cuando el caché exede su límte, el sistema elimina el boque menos frecuentemente usado
+        --cada bloque cargado en el cache es asignado con un contador e incrementado cada vez que se hace referencia a ese bloque
 
-            --Aunque este enfoque parace intuitivo, no es ideal cuando un item en la memoria es referenciado repetidas veces por una cantidad corta de tiempo y no se accede otra vez
-            --la frecuencia de ese bloque es alta, pero podría forzar al sistema a eliminar otros bloques que podrian ser utilizados frecuentemente
-            --nuevos items en el sistema son susceptibles de ser eliminados rapidamente del sistema debido a su baja frecuencia
+        --cuando el caché exede su límite, el sistema busca el bloque con el contador mas y lo remueve del cache 
+        --Aunque este enfoque parace intuitivo, no es ideal cuando un item en la memoria es referenciado repetidas veces por una cantidad corta de tiempo y no se accede otra vez
+        --la frecuencia de ese bloque es alta, pero podría forzar al sistema a eliminar otros bloques que podrian ser utilizados frecuentemente
+        --nuevos items en el sistema son susceptibles de ser eliminados rapidamente del sistema debido a su baja frecuencia
 
-            --debido a esos problemas LFU es poco comun, pero sistemas hibridos utilizan el el núcleo del concepto de LFU, por ejemplo los teclados de los sistemas de aplicaciones móviles, dode la app sugiere palabras al teclado de la app, ahí si tiene mucho sentido implementear LFU caching, ya que el usuario probablemente usa la misma palabra muchas veces, donde la frecuencia de la palabra es útil para ver si la palabra debería existir en el cache
+        --debido a esos problemas LFU es poco comun, pero sistemas hibridos utilizan el el núcleo del concepto de LFU, por ejemplo los teclados de los sistemas de aplicaciones móviles, dode la app sugiere palabras al teclado de la app, ahí si tiene mucho sentido implementear LFU caching, ya que el usuario probablemente usa la misma palabra muchas veces, donde la frecuencia de la palabra es útil para ver si la palabra debería existir en el cache
 
-            
+    * LFU behavior
+        7  0  1  2  0  3  0  4  2  3  0  3  2  1  2
+        ----------------------------------------------
+        | 7| 7| 7| 2| 2| 2| 2| 4| 4| 4| 0| 0| 0| 1| 1| 
+        ----------------------------------------------
+        |  | 0| 0| 0| 0| 0| 0| 0| 0| 3| 3| 3| 3| 3| 3| 
+        ----------------------------------------------
+        |  |  | 1| 1| 1| 3| 3| 3| 2| 2| 2| 2| 2| 2| 2| 
+
+        -> frecuencies
+        7 = 0        2 = 3
+        0 = 0        3 = 3
+        1 = 1        4 = 0
+
+
 */
 
 
