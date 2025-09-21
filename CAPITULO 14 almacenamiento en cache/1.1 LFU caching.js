@@ -15,22 +15,26 @@
         --debido a esos problemas LFU es poco comun, pero sistemas hibridos utilizan el el núcleo del concepto de LFU, por ejemplo los teclados de los sistemas de aplicaciones móviles, dode la app sugiere palabras al teclado de la app, ahí si tiene mucho sentido implementear LFU caching, ya que el usuario probablemente usa la misma palabra muchas veces, donde la frecuencia de la palabra es útil para ver si la palabra debería existir en el cache
 
     * LFU behavior
-        7  0  1  2  0  3  0  4  2  3  0  3  2  1  2
+          7  0  1  2  0  3  0  4  2  3  0  3  2  1  2
         ----------------------------------------------
-        | 7| 7| 7| 2| 2| 2| 2| 4| 4| 4| 0| 0| 0| 1| 1| 
+        | 7| 7| 7| 2| 2| 2| 2| 4| 4| 3| 3| 3| 3| 3| 3| 
         ----------------------------------------------
-        |  | 0| 0| 0| 0| 0| 0| 0| 0| 3| 3| 3| 3| 3| 3| 
+        |  | 0| 0| 0| 0| 0| 0| 0| 0| 0| 0| 0| 0| 0| 0| 
         ----------------------------------------------
-        |  |  | 1| 1| 1| 3| 3| 3| 2| 2| 2| 2| 2| 2| 2| 
-
-        -> frecuencies
+        |  |  | 1| 1| 1| 3| 3| 3| 2| 2| 2| 2| 2| 1| 2| 
+        
+        * frecuencies
         7 = 0        2 = 3
         0 = 0        3 = 3
         1 = 1        4 = 0
 
+         * frecuencies
+        7 = 0        2 = 1
+        0 = 2        3 = 0
+        1 = 1        4 = 0
+
 
 */
-
 
 //7--el LFU caching usa una lista doblemente enlazada para eliminar elementos en un tiempo O(1) la LFU caching tiene un contador que representa la frecuencia de este elemento después de haber sido insertado en el primer tiempo
 

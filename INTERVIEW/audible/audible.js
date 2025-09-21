@@ -9,12 +9,14 @@
       - for linked list we can use mergesort
       - in general the complexity of time is O(n log n) for both
     -> use cases to use one stack
-    -> complexity time  and space for hash table
+    -> complexity time and space for hash table
+      - use when we want speed up retrieval of data
       - time best scenario: O(1) for put(), get(), delete() and search()
       - time worst scenario: O(n) for put(), get(), delete() and search()
-      - space: O(n)
-    -> what is the advantage of one binary tree search? 
-      - the advantage of one binary tree search is that it balance itself, it allow to have a better complexity of time for the operations
+      - space complexity: O(n)
+    -> what is the advantage of one binary tree search?
+      - use when we want to keep data in sorted order
+      - use when we want retrieve max and min values 
       - complexity time:
         - Search: O(log n) avg, O(n) worst
         - Insert: O(log n) avg, O(n) worst
@@ -26,6 +28,11 @@
 /* 
   ideas: 
     - check in internet what is the impplementation of linked list and doubly linked list in javascript
+*/
+
+/* 
+  todo:
+    - review  big o notation pronunciation
 */
 
 
