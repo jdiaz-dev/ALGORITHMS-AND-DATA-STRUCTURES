@@ -52,10 +52,10 @@ LRUCache.prototype.removeNode = function(node){
 }
 
 //every new node will be using the end of the list
+//adding node at head
 LRUCache.prototype.addNode = function(node){
-    let realTail = this.tail.prev //next
+    let realTail = this.tail.prev // head?
     realTail.next = node  //head.next = node
-
     
     node.prev = realTail  //node.prev = head
     node.next = this.tail
