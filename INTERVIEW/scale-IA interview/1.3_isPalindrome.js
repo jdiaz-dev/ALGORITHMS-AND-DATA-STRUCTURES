@@ -35,8 +35,11 @@ const isPalindrome = (linkedList) => {
     let prev = null, curr = low
     while(curr != null){
         let nextTemp = curr.next
+        
+        //inverting
         curr.next = prev
         prev = curr
+
         curr = nextTemp
     }
     while(prev != null){

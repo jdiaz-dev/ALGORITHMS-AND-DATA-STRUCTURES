@@ -28,7 +28,7 @@ const zigzagTraverseTree = (nodes) => {
     tree
     return tree
 }
-zigzagTraverseTree([3,9,20,null,null,15,7])
-
+const res = zigzagTraverseTree([3,9,20,null,null,15,7])
+res
 
 

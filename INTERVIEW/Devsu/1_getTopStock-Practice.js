@@ -38,6 +38,8 @@ function getTopStocks(stock, prices) {
 }
 
 const stock = ["AMZN", "CACC", "EQIX", "GOOG", "ORLY", "ULTA"];
+
+// price history over time
 const prices = [
   [12.81, 11.09, 12.11, 10.39, 9.83, 8.14],
   [10, 34, 10.56, 10.14, 12.56, 9.77, 11, 66],
