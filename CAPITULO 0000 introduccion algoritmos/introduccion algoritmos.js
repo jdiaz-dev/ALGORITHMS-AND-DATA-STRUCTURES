@@ -1,4 +1,9 @@
 /* 
+    DATA STRUCTURES AND ALGORITHMS - Sammie Bae 
+        https://github.com/priya42bagde/javascriptDocuments/blob/main/JavaScript%20Data%20Structures%20and%20Algorithms%20An%20Introduction%20to%20Understanding%20and%20Implementing%20Core%20Data%20Structure%20and%20Algorithm%20Fundamentals%20by%20Sammie%20Bae.pdf
+*/
+
+/* 
     1.1. Algorithms
         --un algoritmo es una secuencia de pasos computacionales que convierte una entrada en una salida
         --es una herramienta para resolver problemas computacionales
