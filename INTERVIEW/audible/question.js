@@ -25,9 +25,10 @@ If returning, the output would be a list of lists, e.g.
 
 
 */
+
 class TrieNode {
   constructor() {
-    this.children = new Map();
+    this.children = {};
     this.isWord = false;
     this.word = null;
   }
@@ -36,88 +37,81 @@ class TrieNode {
 class CompoundWordFinder {
   constructor(words) {
     this.root = new TrieNode();
-    this.wordSet = new Set(words);
-    this.buildTrie(words);
+    this.wordsSet = new Set(words);
+    this.#buildTrie(words);
+    console.log(JSON.stringify(this.root, null, 4));
   }
+  findAllCompounds() {
+    const seen = {};
+    const results = [];
+    for (const word of this.wordsSet) {
+      const compositions = [];
+      this.#findWordCompositions(word, 0, this.root, compositions, []);
 
-  buildTrie(words) {
+      for (const composition of compositions) {
+        if (composition.length > 1) {
+          const key = composition.join("|");
+          if (!seen[key]) {
+            seen[key] = true;
+            results.push(composition);
+          }
+        }
+      }
+    }
+    return results;
+  }
+  #findWordCompositions(originalWord, position, node, compositions, path) {
+    if (position === originalWord.length) {
+      if (path.length > 1) compositions.push([...path]);
+      return;
+    }
+
+    const character = originalWord[position];
+    const nextNode = node.children[character];
+
+    if (!nextNode) {
+      return;
+    }
+
+    if (nextNode.isWord) {
+      const foundWord = nextNode.word;
+      if (originalWord !== foundWord) {
+        path.push(foundWord);
+        this.#findWordCompositions(
+          originalWord,
+          position + 1,
+          this.root, //after to find the first word, go to search the another word using root again and complete some child of the root
+          compositions,
+          path
+        );
+        path.pop();
+      }
+    }
+
+    this.#findWordCompositions(
+      originalWord,
+      position + 1,
+      nextNode,
+      compositions,
+      path
+    );
+  }
+  #buildTrie(words) {
     for (const word of words) {
       let node = this.root;
-      for (const char of word) {
-        if (!node.children.has(char)) {
-          node.children.set(char, new TrieNode());
+
+      for (const [_index, character] of Object.entries(word)) {
+        if (!node.children[character]) {
+          node.children[character] = new TrieNode();
         }
-        node = node.children.get(char);
+        node = node.children[character];
       }
+
       node.isWord = true;
       node.word = word;
     }
   }
-
-  findAllCompounds() {
-    const result = [];
-
-    for (const word of this.wordSet) {
-      const compositions = [];
-      this.findCompositions(word, 0, this.root, [], compositions, word);
-
-      // Add all valid compositions (more than 1 part)
-      for (const comp of compositions) {
-        if (comp.length > 1) {
-          result.push(comp);
-        }
-      }
-    }
-
-    return result;
-  }
-
-  findCompositions(word, pos, node, path, compositions, original) {
-    // Reached end of word
-    if (pos === word.length) {
-      if (node.isWord && path.length > 0) {
-        // Don't allow word to be composed of just itself
-        if (!(path.length === 1 && path[0] === original)) {
-          compositions.push([...path]);
-        }
-      }
-      return;
-    }
-
-    const char = word[pos];
-    if (!node.children.has(char)) {
-      return;
-    }
-
-    const nextNode = node.children.get(char);
-
-    // If we've found a complete word, we can start a new word
-    if (nextNode.isWord) {
-      path.push(nextNode.word);
-      this.findCompositions(
-        word,
-        pos + 1,
-        this.root,
-        path,
-        compositions,
-        original
-      );
-      path.pop();
-    }
-
-    // Continue building current word
-    this.findCompositions(
-      word,
-      pos + 1,
-      nextNode,
-      path,
-      compositions,
-      original
-    );
-  }
 }
-
-// Example usage
 const words = [
   "rockstar",
   "rock",
@@ -133,22 +127,6 @@ const words = [
   "superhighway",
 ];
 
-const finder = new CompoundWordFinder(words);
-const result = finder.findAllCompounds();
-
-// Group and display results
-const grouped = new Map();
-for (const composition of result) {
-  const compound = composition.join("");
-  if (!grouped.has(compound)) {
-    grouped.set(compound, []);
-  }
-  grouped.get(compound).push(composition);
-}
-
-// Print results
-for (const [compound, compositions] of Array.from(grouped).sort()) {
-  for (const comp of compositions) {
-    console.log(`${compound} -> ${comp.join(" + ")}`);
-  }
-}
+const compoundWordFinder = new CompoundWordFinder(words);
+const res = compoundWordFinder.findAllCompounds();
+console.log(res);
