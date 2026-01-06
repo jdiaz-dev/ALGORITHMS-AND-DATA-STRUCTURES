@@ -1,5 +1,5 @@
 function getNthFibonacci(n, memo = {}) {
-  if (n < 0) throw new Error("n must be >= 0");
+  if (n < 0) return
   if (n <= 1) return n;
 
   if (memo[n] !== undefined) {
@@ -10,5 +10,4 @@ function getNthFibonacci(n, memo = {}) {
   return memo[n];
 }
 
-// Example
-console.log(getNthFibonacci(10)); // 55
+console.log(getNthFibonacci(10)); 
