@@ -112,6 +112,15 @@ class CompoundWordFinder {
     }
   }
 }
+/* 
+  Space Complexity: O(N × L)
+    N = number of words
+    L = average word length
+
+  Time Complexity: O(N × L)
+
+*/
+
 const words = [
   "rockstar",
   "rock",
